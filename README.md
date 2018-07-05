@@ -1,4 +1,4 @@
-# Infinum Backend Academy 2018: Homework 1
+# Infinum Backend Academy 2018: Homework 2 - Ruby
 
 ## Setup
 
