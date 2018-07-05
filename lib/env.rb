@@ -1,0 +1,7 @@
+require File.expand_path('1_phonetic_alphabet', __dir__)
+require File.expand_path('2_compress', __dir__)
+require File.expand_path('3_shatro', __dir__)
+require File.expand_path('4_open_class', __dir__)
+require File.expand_path('5_oib', __dir__)
+require File.expand_path('6_gift_shop', __dir__)
+require File.expand_path('7_mixin', __dir__)
