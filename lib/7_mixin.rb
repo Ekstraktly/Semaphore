@@ -17,4 +17,13 @@
 #     - same as clone, but if instance variable is present in overrides, then its value is taken
 #       from overrides argument
 module Cloneable
+	def clone (obj)
+		cl = obj.class.allocate
+		obj.instance_variables.each{ |var|
+			cl.instance_variable_set(var,obj.instance_variable_get(:"#{var}"))
+
+		}
+
+	end
+
 end
