@@ -15,4 +15,38 @@
 #   http://www.regos.hr/UserDocsImages/KONTROLA%20OIB-a.pdf.
 
 class Oib
+	def initialize(input)
+		if input.length < 11
+			raise ArgumentError, "Code is too short"
+		end
+		if input.length > 11
+			raise ArgumentError, "Code is too long"
+		end
+		unless input.match?(/[0-9]{11}/)
+			raise ArgumentError, "Code should contain only digits"
+		end
+		@woib = input.split("")
+		@ctrl = Integer(@woib.pop)
+	end
+		
+	def valid?
+		res = Integer(@woib[0])+10
+		@woib.drop(1).each { |n|
+			res = res%10
+			if res == 0
+				res = 10
+			end
+			res = res*2
+			res = res%11
+			res = res + Integer(n)  }
+		res = res%10
+		if res == 0
+			res = 10
+		end
+		res = res*2
+		res = res%11
+		diff = Integer(String(11- res).split("")[-1])
+		return diff==@ctrl
+	end	
+
 end

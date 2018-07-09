@@ -26,7 +26,32 @@
 # parent class is called with `super`). Override and implement `#total_weight` method.
 
 class Item
+	def initialize (options)
+		@wg = options[:weight]
+	end
+
+	def total_weight
+		return @wg
+	end
 end
 
-class Box
+class Box < Item
+	def initialize (input)
+		@items = input[:items]
+		super(input) #inicijalizacija te kutije koja sadrzava s njenom tezinom
+		puts @items
+		@items.each{ |item|
+			puts item.total_weight
+
+
+		}
+	end
+
+	def total_weight
+		@total = 0
+		@items.each{ |item|
+			@total = @total + item.total_weight
+		}
+		return @total+@wg #100 je tezina same kutije
+	end
 end

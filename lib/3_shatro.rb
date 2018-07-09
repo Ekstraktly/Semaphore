@@ -18,4 +18,28 @@
 # Satrovacki slang.
 
 def shatro(sentence)
+	out = []
+	words = sentence.split(" ")
+	words.each{ |word|
+		if word.length >= 3
+			sw = word.split('')
+			sp = sw.find{ |l| l.match(/[aeiou]/) }
+			x = word.partition(sp)
+			shat = into_word([x[2],x[0],x[1]])
+			out = out +[shat]
+		else 
+			out = out + [word]
+		end
+
+	}
+	into_sentence(out)
+	
+end
+
+def into_word (input)
+	input.join("")
+end
+
+def into_sentence(input)
+	input.join(' ')
 end

@@ -15,3 +15,25 @@
 #
 # 3. Open Array class and add instance method `Array#second` which returns the second element of an
 #    array.
+
+class Integer
+	def increment
+		self. + 1
+	end
+end
+
+class String
+	def ascii_sum
+		@sum = 0
+		splitted = self.split('')
+		self.each_byte { |b| @sum = @sum + b }
+		return sum
+	end
+end
+
+class Array
+	def second 
+		return self[1]
+	end
+end
+

@@ -37,4 +37,13 @@ def nato_phonetic_alphabet # rubocop:disable Metrics/MethodLength
 end
 
 def spell(word)
+    @out = []
+    splitted = word.split("")
+    splitted.each { |l| @out = @out + [nato_phonetic_alphabet[l.downcase]] }
+    into_sentence(@out)
+
+end
+
+def into_sentence (input)
+    input.join(" ")
 end
